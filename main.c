@@ -1,8 +1,6 @@
 #include "monty.h"
-/**#define _POSIX_C_SOURCE 200809L
-#include <stdio.h>**/
 
-global_data glob;
+global glob;
 
 /**
  * file_read - reads the file
@@ -13,7 +11,6 @@ global_data glob;
 FILE *file_read(int ac, char **av)
 {
 	FILE *fd;
-	char *file_name = av[1];
 
 	if (ac != 2)
 	{
@@ -23,7 +20,7 @@ FILE *file_read(int ac, char **av)
 	fd = fopen(av[1], "r");
 	if (!fd)
 	{
-		fprintf(stderr, "Can't open file %s\n", file_name);
+		fprintf(stderr, "Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);
@@ -32,14 +29,25 @@ FILE *file_read(int ac, char **av)
  * set_data - initializes the glob var
  * Return: no return
  */
-void set_data(void)
+void set_data(FILE *fd)
 {
 	glob.count = 1;
 	glob.buffer = NULL;
 	glob.type = 1;
 	glob.head = NULL;
-	glob.args = NULL;
+	glob.arg = NULL;
+	glob.fd = fd;
 }
+/**
+ * free_glob -
+ */
+void free_glob(void)
+{
+	/**free_list(glob.head);**/
+	free(glob.buffer);
+	fclose(glob.fd);
+}
+
 /**
  * main - monty enterpreter
  * @ac: argument count
@@ -55,25 +63,27 @@ int main(int ac, char **av)
 	void (*f)(stack_t **stack, unsigned int line_number);
 
 	fd = file_read(ac, av);
-	set_data();
+	set_data(fd);
 	nline = getline(&glob.buffer, &size, fd);
 	while (nline != -1)
 	{
-		line[0] = strtok(glob.buffer, " \t\n");
-		if (line[0])
+		line[0] = _strtok(glob.buffer, " \t\n");
+		if (line[0] && line[0][0] != '#')
 		{
 			f = opcode_handle(line[0]);
-			if (f == NULL)
+			if (!f)
 			{
 				fprintf(stderr, "L%d: unknown",glob.count);
 				fprintf(stderr, " instruction %s\n", line[0]);
+				free_glob();
 				exit(EXIT_FAILURE);
 			}
-			glob.args = strtok(NULL, " \t\n");
+			glob.arg = _strtok(NULL, " \t\n");
 			f(&glob.head, glob.count);
 		}
-		/**nline = getline(getline(&glob.buffer, &size, fd));**/
+		nline = getline(&glob.buffer, &size, fd);		
 		glob.count++;
 	}
+	free_glob();
 	return (0);
 }
