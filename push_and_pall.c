@@ -11,7 +11,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	if (glob.arg == NULL)
 	{
-		fprintf(stderr, "L%u: Usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_glob();
 		exit(EXIT_FAILURE);
 	}
@@ -20,7 +20,7 @@ void _push(stack_t **head, unsigned int line_number)
 	{
 		if (!isdigit(glob.arg[i]) && glob.arg[i] != '-')
 		{
-			fprintf(stderr, "L%u: Usage: push integer\n", line_number);
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free_glob();
 			exit(EXIT_FAILURE);
 		}
