@@ -42,12 +42,13 @@ void _pall(stack_t **head, unsigned int line_num)
 	stack_t *temp = *head;
 	(void)line_num;
 
-	if (head || *head != NULL)
+	if (head == NULL)
+		return;
+
+	while (temp != NULL)
 	{
-		while (temp != NULL)
-		{
-			printf("%d\n", temp->n);
-			temp = temp->next;
-		}
+		printf("%d\n", temp->n);
+		temp = temp->next;
 	}
 }
+	
