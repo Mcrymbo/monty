@@ -1,7 +1,9 @@
 #include "monty.h"
 
-global glob;
 
+/**
+ * free_glob - frees global variable
+ */
 void free_glob(void)
 {
 	free_list(glob.head);
@@ -34,6 +36,7 @@ FILE *file_read(int ac, char **av)
 }
 /**
  * set_data - initializes the glob var
+ * @fd: file descriptor
  * Return: no return
  */
 void set_data(FILE *fd)

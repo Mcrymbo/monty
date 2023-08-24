@@ -2,18 +2,20 @@
 
 /**
  * _pint - prints value at top of track
- * @head: head of a doubly linked list
+ * @head: pointer to top node
+ * @line_number: line number
+ *
  */
-void _pint(stack_t **stack, unsigned int line_number)
+void _pint(stack_t **head, unsigned int line_number)
 {
 	(void)line_number;
-	if (!*stack)
+	if (!*head)
 	{
 		fprintf(stderr, "L%u: ", line_number);
 		fprintf(stderr, "Can't pint, stack empty\n");
 		exit(EXIT_FAILURE);
 	}
-	printf("%d\n", (*stack)->n);
+	printf("%d\n", (*head)->n);
 }
 /**
  * _pop - print and remove element from a stack

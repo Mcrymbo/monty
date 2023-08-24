@@ -51,7 +51,7 @@ typedef struct globals
 } global;
 
 
-extern global glob;
+global glob;
 
 /**
  * struct instruction_s - opcode and its function
