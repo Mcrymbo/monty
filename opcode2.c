@@ -26,8 +26,8 @@ void _mul(stack_t **head, unsigned int line_number)
 }
 /**
  * _mod - computes modulus of two top elements
- * @head: top node
- * @line_num: line  number
+ * @stack: top node
+ * @line_number: line  number
  */
 void _mod(stack_t **stack, unsigned int line_number)
 {
