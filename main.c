@@ -2,6 +2,13 @@
 
 global glob;
 
+void free_glob(void)
+{
+	free_list(glob.head);
+	free(glob.buffer);
+	fclose(glob.fd);
+}
+
 /**
  * file_read - reads the file
  * @ac: argument count
@@ -31,21 +38,12 @@ FILE *file_read(int ac, char **av)
  */
 void set_data(FILE *fd)
 {
-	glob.count = 1;
-	glob.buffer = NULL;
 	glob.type = 1;
-	glob.head = NULL;
+	glob.count = 1;
 	glob.arg = NULL;
+	glob.head = NULL;
 	glob.fd = fd;
-}
-/**
- * free_glob -
- */
-void free_glob(void)
-{
-	/**free_list(glob.head);**/
-	free(glob.buffer);
-	fclose(glob.fd);
+	glob.buffer = NULL;
 }
 
 /**
@@ -73,7 +71,7 @@ int main(int ac, char **av)
 			f = opcode_handle(line[0]);
 			if (!f)
 			{
-				fprintf(stderr, "L%d: unknown",glob.count);
+				fprintf(stderr, "L%d: unknown", glob.count);
 				fprintf(stderr, " instruction %s\n", line[0]);
 				free_glob();
 				exit(EXIT_FAILURE);
@@ -81,7 +79,7 @@ int main(int ac, char **av)
 			glob.arg = _strtok(NULL, " \t\n");
 			f(&glob.head, glob.count);
 		}
-		nline = getline(&glob.buffer, &size, fd);		
+		nline = getline(&glob.buffer, &size, fd);
 		glob.count++;
 	}
 	free_glob();

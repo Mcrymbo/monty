@@ -8,6 +8,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <ctype.h>
+#include <string.h>
 
 #define BUFSIZE 1024
 
@@ -49,6 +50,9 @@ typedef struct globals
 	char *buffer;
 } global;
 
+
+extern global glob;
+
 /**
  * struct instruction_s - opcode and its function
  * @opcode: the opcode
@@ -62,8 +66,6 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
-
-extern global glob;
 
 /** aux_str.c**/
 int _strcmp(char *s1, char *s2);
@@ -85,10 +87,16 @@ void _pint(stack_t **stack, unsigned int line_number);
 stack_t *add_node_end(stack_t **head, const int n);
 stack_t *add_node_big(stack_t **head, const int n);
 void free_list(stack_t *head);
+void free_glob(void);
 
 /** _getline.c **/
 void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
 int fileno(FILE *stream);
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+
+/** opcodes **/
+void _push(stack_t **head, unsigned int line_number);
+void _pall(stack_t **head, unsigned int line_num);
+void _pop(stack_t **head, unsigned int line_num);
 
 #endif
