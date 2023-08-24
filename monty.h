@@ -103,5 +103,6 @@ void _nop(stack_t **head, unsigned int line_nu);
 void _sub(stack_t **head, unsigned int line_num);
 void _div(stack_t **head, unsigned int line_num);
 void _mul(stack_t **head, unsigned int line_number);
+void _mod(stack_t **stack, unsigned int line_number);
 
 #endif
