@@ -100,5 +100,6 @@ void _pall(stack_t **head, unsigned int line_num);
 void _pop(stack_t **head, unsigned int line_num);
 void _swap(stack_t **head, unsigned int line_num);
 void _nop(stack_t **head, unsigned int line_nu);
+void _sub(stack_t **head, unsigned int line_num);
 
 #endif
