@@ -1,6 +1,16 @@
 #ifndef MONTY_H
 #define MONTY_H
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <errno.h>
+#include <string.h>
+#include <sys/types.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+#define BUFSIZE 1024
+
 /* include guard this header file using define and ifndef */
 
 /**
@@ -32,4 +42,32 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+
+/**
+ * struct global_data - holds golbal variables
+ * @count: holds line number
+ * @buffer: holds file data
+ * @type: LIFO or FIFO information
+ * @head: pointer to doubly linked list
+ * @args: second argument
+ */
+typedef struct global_data
+{
+	int count;
+	char *buffer;
+	int type;
+	stack_t *head;
+	char *args;
+} global_data;
+
+/** handling_opcodes.c */
+void (*opcode_handle(char *op))(stack_t **stack, unsigned int line_numer);
+/** aux_mem.c **/
+void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size);
+
+/** _getline.c **/
+ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+void bring_line(char **lineptr, size_t *n, char *buffer, size_t j);
+
 #endif
