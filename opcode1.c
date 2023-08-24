@@ -60,6 +60,7 @@ void _sub(stack_t **head, unsigned int line_num)
 {
 	stack_t *temp = NULL;
 	int i = 0;
+	(void)line_num;
 
 	temp = *head;
 	while (temp != NULL)
@@ -75,5 +76,5 @@ void _sub(stack_t **head, unsigned int line_num)
 	}
 	temp = (*head)->next;
 	temp->n -= (*head)->n;
-	_pop(head, line_num);
+	free(*head);
 }
