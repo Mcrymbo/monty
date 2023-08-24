@@ -74,5 +74,6 @@ void _swap(stack_t **head, unsigned int line_num)
 void _nop(stack_t **head, unsigned int line_nu)
 {
 	(void)head;
+	(void)(*head);
 	(void)line_nu;
 }
