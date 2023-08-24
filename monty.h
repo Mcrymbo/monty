@@ -31,9 +31,9 @@ typedef struct stack_s
 } stack_t;
 
 /**
- * struct globals - global structure to use in the functions
- * @lifo: is stack or queue
- * @cont: current line
+ * struct globals - struct to hold global variables
+ * @type: is stack or queue
+ * @count: current line
  * @arg: second parameter inside the current line
  * @head: doubly linked list
  * @fd: file descriptor
@@ -101,6 +101,8 @@ ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_num);
 void _pop(stack_t **head, unsigned int line_num);
+void _swap(stack_t **head, unsigned int line_num);
+void _nop(stack_t **head, unsigned int line_nu);
 
 /** add_opcode **/
 void _add(stack_t **stack, unsigned int line_number);

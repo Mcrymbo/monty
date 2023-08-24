@@ -11,7 +11,7 @@ void _push(stack_t **head, unsigned int line_number)
 
 	if (glob.arg == NULL)
 	{
-		fprintf(stderr, "L%u: Usage: push integer\n", line_number);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free_glob();
 		exit(EXIT_FAILURE);
 	}
@@ -20,7 +20,7 @@ void _push(stack_t **head, unsigned int line_number)
 	{
 		if (!isdigit(glob.arg[i]) && glob.arg[i] != '-')
 		{
-			fprintf(stderr, "L%u: Usage: push integer\n", line_number);
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
 			free_glob();
 			exit(EXIT_FAILURE);
 		}
@@ -37,14 +37,14 @@ void _push(stack_t **head, unsigned int line_number)
 /**
  * _pall - prints values on a stack
  * @head: top of a stack
- * line_num: line number
+ * @line_num: line number
  */
 void _pall(stack_t **head, unsigned int line_num)
 {
 	stack_t *temp = *head;
 	(void)line_num;
 
-	while(temp != NULL)
+	while (temp != NULL)
 	{
 		printf("%d\n", temp->n);
 		temp = temp->next;
