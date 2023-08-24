@@ -27,10 +27,20 @@ void bring_line(char **lineptr, size_t *n, char *buffer, size_t j)
 	}
 	else
 	{
-		strcpy(*lineptr, buffer);
+		_strcpy(*lineptr, buffer);
 		free(buffer);
 	}
 }
+/**
+ * fileno - gets file descriptor of the steeam
+ * @stream: file to open
+ * Return: file descriptor
+ */
+int fileno(FILE *stream)
+{
+	return (stream->_fileno);
+}
+
 /**
  * _getline - reads input from stream
  * @lineptr: buffer that stores input
@@ -56,7 +66,7 @@ ssize_t getline(char **lineptr, size_t *n, FILE *stream)
 		return (-1);
 	while (t != '\n')
 	{
-		i = read(STDIN_FILENO, &t, 1);
+		i = read(fileno(stream), &t, 1);
 		if (i == -1 || (i == 0 && input))
 		{
 			free(buffer);
