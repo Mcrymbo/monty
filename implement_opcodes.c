@@ -2,8 +2,8 @@
 
 /**
  * opcode_handle - handles opcodes
- * @opcode: opcode to compare
- * Return:
+ * @op: opcode to compare
+ * Return: no pointer to opcode function
  */
 void (*opcode_handle(char *op))(stack_t **stack, unsigned int line_number)
 {
@@ -13,6 +13,8 @@ void (*opcode_handle(char *op))(stack_t **stack, unsigned int line_number)
 		{"pall", _pall},
 		{"pint", _pint},
 		{"pop", _pop},
+		{"nop", _nop},
+		{"swap", _swap},
 		{NULL, NULL}
 	};
 

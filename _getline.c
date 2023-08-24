@@ -42,7 +42,7 @@ int fileno(FILE *stream)
 }
 
 /**
- * _getline - reads input from stream
+ * getline - reads input from stream
  * @lineptr: buffer that stores input
  * @n: size of lineptr
  * @stream: stream to read from

@@ -51,7 +51,7 @@ typedef struct globals
 } global;
 
 
-extern global glob;
+global glob;
 
 /**
  * struct instruction_s - opcode and its function
@@ -98,5 +98,7 @@ ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_num);
 void _pop(stack_t **head, unsigned int line_num);
+void _swap(stack_t **head, unsigned int line_num);
+void _nop(stack_t **head, unsigned int line_nu);
 
 #endif

@@ -71,10 +71,8 @@ stack_t *add_node_big(stack_t **head, const int n)
 }
 
 /**
- * free_dlistint - frees the doubly linked list
- *
+ * free_list- frees the doubly linked list
  * @head: head of the list
- * Return: no return
  */
 void free_list(stack_t *head)
 {
