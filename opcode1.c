@@ -96,7 +96,7 @@ void _div(stack_t **head, unsigned int line_num)
 	}
 	if (i < 2)
 	{
-		fprintf(stderr, "L%u: can't sub, stack too short\n", line_num);
+		fprintf(stderr, "L%u: can't div, stack too short\n", line_num);
 		free_glob();
 		exit(EXIT_FAILURE);
 	}
@@ -106,7 +106,6 @@ void _div(stack_t **head, unsigned int line_num)
 		free_glob();
 		exit(EXIT_FAILURE);
 	}
-	temp = *head;
 	temp = (*head)->next;
 	temp->n /= (*head)->n;
 	_pop(head, line_num);
