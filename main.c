@@ -1,5 +1,6 @@
 #include "monty.h"
 
+global glob; /* global variable to hold the state of the program*/
 
 /**
  * free_glob - frees global variable

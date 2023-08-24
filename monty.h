@@ -29,9 +29,9 @@ typedef struct stack_s
 } stack_t;
 
 /**
- * struct globals - global structure to use in the functions
- * @lifo: is stack or queue
- * @cont: current line
+ * struct globals - struct to hold global variables
+ * @type: is stack or queue
+ * @count: current line
  * @arg: second parameter inside the current line
  * @head: doubly linked list
  * @fd: file descriptor
@@ -51,7 +51,7 @@ typedef struct globals
 } global;
 
 
-global glob;
+extern global glob;
 
 /**
  * struct instruction_s - opcode and its function
