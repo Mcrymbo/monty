@@ -76,5 +76,5 @@ void _sub(stack_t **head, unsigned int line_num)
 	}
 	temp = (*head)->next;
 	temp->n -= (*head)->n;
-	free(*head);
+	_pop(head, line_num);
 }
