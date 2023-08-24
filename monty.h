@@ -13,7 +13,7 @@
 #define BUFSIZE 1024
 
 
-/* include guard this header file using define and ifndef
+/* include guard this header file using define and ifndef*/
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer
@@ -101,5 +101,8 @@ ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 void _push(stack_t **head, unsigned int line_number);
 void _pall(stack_t **head, unsigned int line_num);
 void _pop(stack_t **head, unsigned int line_num);
+
+/** add_opcode **/
+void _add(stack_t **stack, unsigned int line_number);
 
 #endif
