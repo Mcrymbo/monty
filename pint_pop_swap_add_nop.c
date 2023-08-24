@@ -63,3 +63,13 @@ void _swap(stack_t **head, unsigned int line_num)
 	(*head)->prev = NULL;
 	(*head)->next = temp;
 }
+/**
+ * _nop - does nothing
+ * @head: pointer to head
+ * @line_nu: line number
+ */
+void _nop(stack_t **head, unsigned int line_nu)
+{
+	(void)head;
+	(void)line_nu;
+}
