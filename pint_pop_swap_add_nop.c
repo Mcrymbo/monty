@@ -24,7 +24,7 @@ void _pint(stack_t **head, unsigned int line_number)
  */
 void _pop(stack_t **head, unsigned int line_num)
 {
-	stack_t *temp = *head;
+	stack_t *temp;
 
 	if (head == NULL)
 	{
@@ -32,6 +32,7 @@ void _pop(stack_t **head, unsigned int line_num)
 		free_glob();
 		exit(EXIT_FAILURE);
 	}
+	temp = *head;
 	*head = (*head)->next;
 	free(temp);
 }
