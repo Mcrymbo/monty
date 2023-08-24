@@ -51,4 +51,3 @@ void _pall(stack_t **head, unsigned int line_num)
 		temp = temp->next;
 	}
 }
-	
