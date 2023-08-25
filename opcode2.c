@@ -56,3 +56,26 @@ void _mod(stack_t **stack, unsigned int line_number)
 	temp->n %= (*stack)->n;
 	_pop(stack, line_number);
 }
+/**
+ * _pchar - prints character at top of stack
+ * @head: pointer to first element of the stack
+ * @line_num: line number
+ */
+void _pchar(stack_t **head, unsigned int line_num)
+{
+	stack_t *temp = *head;
+
+	if (!head || !temp)
+	{
+		fprintf(stderr, "L%u: can't pchar, stack empty\n", line_num);
+		free_glob();
+		exit(EXIT_FAILURE);
+	}
+	if (temp->n < 0 || temp->n > 127)
+	{
+		fprintf(stderr, "L%u: can't pchar, value out of range\n", line_num);
+		free_glob();
+		exit(EXIT_FAILURE);
+	}
+	printf("%c\n", temp->n);
+}

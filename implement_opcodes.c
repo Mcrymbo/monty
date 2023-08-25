@@ -20,6 +20,7 @@ void (*opcode_handle(char *op))(stack_t **stack, unsigned int line_number)
 		{"mul", _mul},
 		{"mod", _mod},
 		{"add", _add},
+		{"pchar", _pchar},
 		{NULL, NULL}
 	};
 
