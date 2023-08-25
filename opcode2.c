@@ -79,3 +79,25 @@ void _pchar(stack_t **head, unsigned int line_num)
 	}
 	printf("%c\n", temp->n);
 }
+/**
+ * _pstr - prints all string in the stack
+ * @head: pointer to top element
+ * @line_num: line number
+ */
+void _pstr(stack_t **head, unsigned int line_num)
+{
+	stack_t *temp = *head;
+	(void)line_num;
+
+	if (!head || !temp)
+	{
+		free_glob();
+		printf("\n");
+	}
+	while (temp->n != 0 && temp->n > 0 && temp->n <= 127)
+	{
+		printf("%c", temp->n);
+		temp = temp->next;
+	}
+	printf("\n");
+}
