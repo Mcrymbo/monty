@@ -102,7 +102,7 @@ void _div(stack_t **head, unsigned int line_num)
 	}
 	if ((*head)->n == 0)
 	{
-		fprintf(stderr, "L%u: division by zeror\n", line_num);
+		fprintf(stderr, "L%u: division by zero\n", line_num);
 		free_glob();
 		exit(EXIT_FAILURE);
 	}
