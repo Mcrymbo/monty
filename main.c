@@ -30,7 +30,7 @@ FILE *file_read(int ac, char **av)
 	fd = fopen(av[1], "r");
 	if (!fd)
 	{
-		fprintf(stderr, "Can't open file %s\n", av[1]);
+		fprintf(stderr, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	return (fd);

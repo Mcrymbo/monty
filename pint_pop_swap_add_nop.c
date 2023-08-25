@@ -76,3 +76,30 @@ void _nop(stack_t **head, unsigned int line_nu)
 	(void)head;
 	(void)line_nu;
 }
+
+/**
+ * _add - adds two top elements of a stack
+ * @head: pointer to first element of a stack
+ * @line_num: line number
+ */
+void _add(stack_t **head, unsigned int line_num)
+{
+	stack_t *temp;
+	int i = 0;
+
+	temp = *head;
+	while (temp != NULL)
+	{
+		temp = temp->next;
+		i++;
+	}
+	if (i < 2)
+	{
+		fprintf(stderr, "L%u: can't add, stack too short\n", line_num);
+		free_glob();
+		exit(EXIT_FAILURE);
+	}
+	temp = (*head)->next;
+	temp->n += (*head)->n;
+	_pop(head, line_num);
+}
