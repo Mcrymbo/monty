@@ -42,7 +42,7 @@ FILE *file_read(int ac, char **av)
  */
 void set_data(FILE *fd)
 {
-	glob.type = 1;
+	glob.type = 0;
 	glob.count = 1;
 	glob.arg = NULL;
 	glob.head = NULL;

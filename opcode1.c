@@ -28,10 +28,10 @@ void _push(stack_t **head, unsigned int line_number)
 	}
 
 	j = atoi(glob.arg);
-	if (glob.type == 1)
-		add_node_big(head, j);
-	else if (glob.type == 0)
+	if (glob.type == 0)
 		add_node_end(head, j);
+	else
+		add_node_big(head, j);
 }
 
 /**

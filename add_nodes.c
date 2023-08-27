@@ -32,7 +32,7 @@ stack_t *add_node_end(stack_t **head, const int n)
 		temp = temp->next;
 	new->next = temp->next;
 	new->prev = temp;
-	new->next = new;
+	temp->next = new;
 	return (temp->next);
 }
 
