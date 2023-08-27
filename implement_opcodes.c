@@ -23,6 +23,7 @@ void (*opcode_handle(char *op))(stack_t **stack, unsigned int line_number)
 		{"pchar", _pchar},
 		{"pstr", _pstr},
 		{"rotl", _rotl},
+		{"rotr", _rotr},
 		{NULL, NULL}
 	};
 

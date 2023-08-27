@@ -108,5 +108,6 @@ void _add(stack_t **head, unsigned int line_num);
 void _pchar(stack_t **head, unsigned int line_num);
 void _pstr(stack_t **head, unsigned int line_num);
 void _rotl(stack_t **head, unsigned int line_num);
+void _rotr(stack_t **head, unsigned int line_num);
 
 #endif
